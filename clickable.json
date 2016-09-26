@@ -1,0 +1,11 @@
+{
+  "package": "fishtank.bhdouglass",
+  "app": "cordova",
+  "sdk": "ubuntu-sdk-15.04",
+  "arch": "armhf",
+  "template": "cordova",
+  "kill": "cordova-ubuntu",
+  "scripts": {
+    "server": "cd www; http-server"
+  }
+}

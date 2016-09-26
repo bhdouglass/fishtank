@@ -1,0 +1,15 @@
+{
+  "name": "fish-tank",
+  "authors": [
+    "Brian Douglass <bhdouglass@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "GPL-3.0",
+  "homepage": "http://bhdouglass.com",
+  "private": true,
+  "dependencies": {
+    "boid": "^0.2.2",
+    "phaser": "^2.6.2"
+  }
+}
