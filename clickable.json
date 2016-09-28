@@ -5,7 +5,9 @@
   "arch": "armhf",
   "template": "cordova",
   "kill": "cordova-ubuntu",
+  "prebuild": "sed -i -e \"s/X-Ubuntu-Touch=true';/X-Ubuntu-Touch=true\\\nX-Ubuntu-Supported-Orientations=portrait';/g\" platforms/ubuntu/cordova/lib/manifest.js",
   "scripts": {
-    "server": "cd www; http-server"
+    "server": "cd www; http-server",
+    "build-android": "cordova -d build android --device"
   }
 }

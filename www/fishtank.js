@@ -5,7 +5,7 @@ function Fish(game, group, asset, origin, bounds) {
     this.LEFT = 'left';
 
     this.game = game;
-    this.origin = origin;
+    this.target = Boid.vec2(0, 0);
 
     if (!asset) {
         asset = this.game.rnd.pick(FISH_ASSETS);
@@ -19,7 +19,7 @@ function Fish(game, group, asset, origin, bounds) {
     this.sprite.anchor.set(0.5);
 
     this.boid = new Boid();
-    this.boid.setBounds(bounds.width, bounds.height);
+    this.boid.setBounds(bounds.width, bounds.height, origin.x, origin.y);
     this.boid.position.x = x;
     this.boid.position.y = y;
     this.boid.velocity.x = this.game.rnd.integerInRange(-3, 3);
@@ -50,8 +50,8 @@ Fish.prototype.update = function() {
 
     this.game.physics.arcade.moveToXY(
         this.sprite,
-        this.origin.x + this.boid.position.x,
-        this.origin.y + this.boid.position.y
+        this.boid.position.x,
+        this.boid.position.y
     );
 }
 
@@ -90,7 +90,7 @@ FishTank.prototype = {
             this.fishes.push(new Fish(this.game, this.fishGroup, asset, origin, bounds));
         }, this);
 
-        for (var i = 0; i < this.game.rnd.integerInRange(10, 20); i++) {
+        for (var i = 0; i < this.game.rnd.integerInRange(15, 25); i++) {
             this.fishes.push(new Fish(this.game, this.fishGroup, null, origin, bounds));
         }
     },
@@ -99,12 +99,12 @@ FishTank.prototype = {
         this.fishes.forEach(function(fish) {
             fish.update();
         });
-    }
+    },
 };
 
 function init() {
-    //TODO resize this to the window
-    var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'game');
+    //TODO listen to window resizing
+    var game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.CANVAS, 'game');
     game.state.add('FishTank', FishTank, true);
 }
 
