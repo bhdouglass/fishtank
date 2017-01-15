@@ -1,0 +1,15 @@
+{
+  "name": "fishtank",
+  "version": "1.0.0",
+  "description": "Watch fish swim around in a virtual fish tank",
+  "main": "gulpfile.js",
+  "author": "Brian Douglass",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-open": "^2.0.0"
+  }
+}

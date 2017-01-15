@@ -1,13 +1,15 @@
 {
-  "package": "fishtank.bhdouglass",
-  "app": "cordova",
-  "sdk": "ubuntu-sdk-15.04",
-  "arch": "armhf",
-  "template": "cordova",
-  "kill": "cordova-ubuntu",
-  "prebuild": "sed -i -e \"s/X-Ubuntu-Touch=true';/X-Ubuntu-Touch=true\\\nX-Ubuntu-Supported-Orientations=portrait';/g\" platforms/ubuntu/cordova/lib/manifest.js",
+  "arch": "all",
+  "template": "custom",
+  "build": "../click/build.sh",
+  "kill": "webapp-container",
   "scripts": {
     "server": "cd www; http-server -c-1",
     "build-android": "cordova -d build android --device"
-  }
+  },
+  "specificDependencies": true,
+  "dependencies": [
+    "nodejs",
+    "nodejs-legacy"
+  ]
 }

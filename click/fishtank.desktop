@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Fish Tank
+Comment=Watch fish swim around in a virtual fish tank
+Exec=webapp-container --app-id="fishtank.bhdouglass" $@ www/index.html
+Icon=www/img/logo.png
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true
+X-Ubuntu-Supported-Orientations=portrait

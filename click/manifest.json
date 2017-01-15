@@ -1,0 +1,15 @@
+{
+    "name": "fishtank.bhdouglass",
+    "description": "Watch fish swim around in a virtual fish tank",
+    "architecture": "all",
+    "title": "Fish Tank",
+    "hooks": {
+        "fishtank": {
+            "apparmor": "fishtank.apparmor",
+            "desktop":  "fishtank.desktop"
+        }
+    },
+    "version": "1.0",
+    "maintainer": "Brian Douglass <bhdouglass@gmail.com>",
+    "framework" : "ubuntu-sdk-15.04.6"
+}
