@@ -5,8 +5,6 @@ function FishTankState(game) {
     this.groundGroup = null;
     this.fishGroup = null;
     this.fishes = [];
-    this.ground = [];
-    this.ornaments = [];
 
     this.tileOptions = [
         'ground_01',
@@ -37,14 +35,13 @@ FishTankState.prototype = {
 
         var tiles = (this.game.width / 64) + 1;
         for (var i = 0; i < tiles; i++) {
-            //TODO don't use a sprite for these
             var asset = this.game.rnd.pick(this.tileOptions);
-            this.ground.push(this.game.add.sprite(64 * i, this.game.height - 64, asset, null, this.groundGroup));
+            this.groundGroup.create(64 * i, this.game.height - 64, asset, null);
 
             if (this.game.rnd.integerInRange(1, 3) == 1) {
                 var ornamentAsset = this.game.rnd.pick(this.ornamentOptions);
                 var offset = 12; //The ground tiles have some transparency on top
-                this.ornaments.push(this.game.add.sprite(64 * i, this.game.height - 64 - 64 + offset, ornamentAsset, null, this.ornamentGroup));
+                this.ornamentGroup.create(64 * i, this.game.height - 64 - 64 + offset, ornamentAsset, null);
             }
         }
 

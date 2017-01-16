@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd ..
-./node_modules/.bin/gulp build
+LINKS=false ./node_modules/.bin/gulp build
 
 mkdir -p build/tmp/
 cp -r www/ build/tmp/

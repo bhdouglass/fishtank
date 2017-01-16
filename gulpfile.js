@@ -38,6 +38,7 @@ var paths = {
         'src/img/kenney/fishTile_085.png',
 
         'src/img/*.png',
+        'src/img/*.svg',
     ],
     html: [
         'src/index.html',
@@ -51,7 +52,8 @@ gulp.task('clean', function() {
 gulp.task('build-html', function() {
     return gulp.src(paths.html)
         .pipe(preprocess({context: {
-            CORDOVA: !!process.env.CORDOVA
+            CORDOVA: process.env.CORDOVA == 'true',
+            LINKS: process.env.LINKS != 'false',
         }}))
         .pipe(gulp.dest(paths.dist));
 });
@@ -101,4 +103,3 @@ gulp.task('deploy', ['build'], function() {
         domain: 'fishtank.bhdouglass.com',
     });
 });
-

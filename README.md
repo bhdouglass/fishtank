@@ -2,10 +2,12 @@
 
 A simple virtual fish tank built with [phaser](http://phaser.io).
 
-# Game Assets
+## Images
 
 The fish tiles are from [Kenney's game asset pack](https://kenney.itch.io/kenney-game-assets-2)
 and used under the [Creative Commons Zero, CC0](http://creativecommons.org/publicdomain/zero/1.0/).
+
+Other images are from [Font Awesome](http://fontawesome.io/).
 
 ## License
 

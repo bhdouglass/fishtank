@@ -3,7 +3,7 @@ function BootState() {}
 BootState.prototype = {
     preload: function() {
         this.load.image('logo', 'img/logo.png');
-        this.load.image('loading', 'img/loading.png'); //TODO add loading image
+        //this.load.image('loading', 'img/loading.png'); //TODO add loading image
     },
     create: function() {
         this.game.stage.backgroundColor = '#A1D6E7';
@@ -25,14 +25,14 @@ PreloadState.prototype = {
         );
         this.logo.anchor.setTo(0.5);
 
-        this.loading = this.game.add.sprite(
+        /*this.loading = this.game.add.sprite(
             this.game.world.centerX,
             this.game.world.centerY + 128,
             'loading'
         );
         this.loading.anchor.setTo(0.5);
 
-        this.load.setPreloadSprite(this.loading);
+        this.load.setPreloadSprite(this.loading);*/
 
         //TODO sprite map
         this.load.image('green_fish', 'img/fishTile_073.png');
