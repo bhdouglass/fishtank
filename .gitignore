@@ -3,3 +3,4 @@ plugins
 www
 build
 node_modules
+build.json

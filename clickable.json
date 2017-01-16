@@ -5,7 +5,8 @@
   "kill": "webapp-container",
   "scripts": {
     "server": "cd www; http-server -c-1",
-    "build-android": "CORDOVA=true gulp build && cordova -d build android --device"
+    "build-android": "LINKS=false CORDOVA=true gulp build && cordova -d build android --device",
+    "build-android-release": "LINKS=false CORDOVA=true gulp build && cordova run android --release"
   },
   "specificDependencies": true,
   "dependencies": [

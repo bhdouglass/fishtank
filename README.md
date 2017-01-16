@@ -2,7 +2,8 @@
 
 A simple virtual fish tank built with [phaser](http://phaser.io).
 
-Fish Tank is available on [Ubuntu Touch](https://uappexplorer.com/app/fishtank.bhdouglass)
+Fish Tank is available on [Android](https://play.google.com/store/apps/details?id=fishtank.bhdouglass),
+[Ubuntu Touch](https://uappexplorer.com/app/fishtank.bhdouglass)
 and the [web](http://fishtank.bhdouglass.com/).
 
 ## Images
