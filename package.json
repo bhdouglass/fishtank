@@ -13,5 +13,22 @@
     "gulp-open": "^2.0.0",
     "gulp-preprocess": "^2.0.0",
     "gulp-surge": "^0.1.0"
-  }
+  },
+  "dependencies": {
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-open": "^2.0.0",
+    "gulp-connect": "^5.0.0",
+    "gulp-preprocess": "^2.0.0",
+    "gulp-surge": "^0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhdouglass/fishtank.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bhdouglass/fishtank/issues"
+  },
+  "homepage": "https://github.com/bhdouglass/fishtank#readme"
 }
