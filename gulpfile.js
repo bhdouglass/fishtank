@@ -2,6 +2,8 @@ var gulp = require('gulp');
 var concat = require('gulp-concat');
 var connect = require('gulp-connect');
 var gopen = require('gulp-open');
+var preprocess = require('gulp-preprocess');
+var surge = require('gulp-surge');
 var del = require('del');
 
 var paths = {
@@ -16,12 +18,25 @@ var paths = {
         'src/js/index.js',
     ],
     img: [
-        'src/img/kenney/fishTile_072.png',
-        'src/img/kenney/fishTile_074.png',
-        'src/img/kenney/fishTile_076.png',
-        'src/img/kenney/fishTile_078.png',
-        'src/img/kenney/fishTile_080.png',
-        'src/img/kenney/fishTile_100.png',
+        'src/img/kenney/fishTile_073.png',
+        'src/img/kenney/fishTile_075.png',
+        'src/img/kenney/fishTile_077.png',
+        'src/img/kenney/fishTile_079.png',
+        'src/img/kenney/fishTile_081.png',
+        'src/img/kenney/fishTile_101.png',
+
+        'src/img/kenney/fishTile_056.png',
+        'src/img/kenney/fishTile_057.png',
+        'src/img/kenney/fishTile_060.png',
+        'src/img/kenney/fishTile_061.png',
+        'src/img/kenney/fishTile_062.png',
+        'src/img/kenney/fishTile_063.png',
+
+        'src/img/kenney/fishTile_032.png',
+        'src/img/kenney/fishTile_033.png',
+        'src/img/kenney/fishTile_084.png',
+        'src/img/kenney/fishTile_085.png',
+
         'src/img/*.png',
     ],
     html: [
@@ -35,6 +50,9 @@ gulp.task('clean', function() {
 
 gulp.task('build-html', function() {
     return gulp.src(paths.html)
+        .pipe(preprocess({context: {
+            CORDOVA: !!process.env.CORDOVA
+        }}))
         .pipe(gulp.dest(paths.dist));
 });
 
@@ -76,3 +94,11 @@ gulp.task('serve', ['build', 'watch'], function() {
             uri: 'http://localhost:8080'
         }));
 });
+
+gulp.task('deploy', ['build'], function() {
+    return surge({
+        project: paths.dist,
+        domain: 'fishtank.bhdouglass.com',
+    });
+});
+

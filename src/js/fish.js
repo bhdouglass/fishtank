@@ -13,7 +13,7 @@ function Fish(game, group, asset, origin, bounds) {
 
     var x = this.game.rnd.integerInRange(0, bounds.width);
     var y = this.game.rnd.integerInRange(0, bounds.height);
-    this.sprite = this.game.add.sprite(x, y, asset, null, group)
+    this.sprite = this.game.add.sprite(x, y, asset, null, group);
 
     this.game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
     this.sprite.anchor.set(0.5);
