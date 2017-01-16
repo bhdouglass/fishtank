@@ -2,6 +2,9 @@
 
 A simple virtual fish tank built with [phaser](http://phaser.io).
 
+Fish Tank is available on [Ubuntu Touch](https://uappexplorer.com/app/fishtank.bhdouglass)
+and the [web](http://fishtank.bhdouglass.com/).
+
 ## Images
 
 The fish tiles are from [Kenney's game asset pack](https://kenney.itch.io/kenney-game-assets-2)
