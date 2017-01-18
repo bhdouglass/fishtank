@@ -29,12 +29,16 @@ function Fish(game, group, asset, origin, bounds) {
         this.facing = this.LEFT;
         this.sprite.scale.x *= -1;
     }
+
+    //Prevent the fish from rapidly switching facings
+    this.wiggle = 0;
 }
 
 Fish.FISH_ASSETS = FISH_ASSETS;
 Fish.WANDER = 'wander';
 Fish.SEEK = 'seek';
 Fish.FLEE = 'flee';
+Fish.WIGGLE_FACTOR = 20;
 
 //TODO make the fish not "wiggle" so much (check the orientation and only switch after a while)
 Fish.prototype.update = function(behavior, target) {
@@ -58,9 +62,17 @@ Fish.prototype.update = function(behavior, target) {
     if (rotation > 0.5 * Math.PI || rotation < -0.5 * Math.PI) {
         facing = this.LEFT;
     }
+
     if (facing != this.facing) {
-        this.facing = facing;
-        this.sprite.scale.x *= -1;
+        if (this.wiggle > Fish.WIGGLE_FACTOR) {
+            this.wiggle = 0;
+
+            this.facing = facing;
+            this.sprite.scale.x *= -1;
+        }
+        else {
+            this.wiggle++;
+        }
     }
 
     this.sprite.x = this.boid.position.x;
