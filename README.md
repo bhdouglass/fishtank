@@ -8,7 +8,7 @@ and the [web](http://fishtank.bhdouglass.com/).
 
 ## Images
 
-The fish tiles are from [Kenney's game asset pack](https://kenney.itch.io/kenney-game-assets-2)
+The fish & ui assets are from [Kenney's game asset pack](https://kenney.itch.io/kenney-game-assets-2)
 and used under the [Creative Commons Zero, CC0](http://creativecommons.org/publicdomain/zero/1.0/).
 
 Other images are from [Font Awesome](http://fontawesome.io/).
