@@ -1,6 +1,7 @@
 function FishTankState(game) {
     this.game = game;
-    this.playMusic = true; //TODO save/load from localstorage
+    this.playMusic = true;
+    this.modal = new gameModal(game);
 
     this.fishes = [];
 
@@ -70,6 +71,67 @@ FishTankState.prototype = {
     create: function() {
         this.game.stage.backgroundColor = '#A1D6E7';
 
+        //Setup the about modal
+        this.modal.createModal({
+            type: 'about',
+            includeBackground: true,
+            modalCloseOnInput: true,
+            itemsArr: [
+                {
+                    type: 'text',
+                    content: 'Fish Tank',
+                    fontSize: 42,
+                    offsetY: -130,
+                    color: "0xFFFFFF",
+                }, {
+                    type: 'text',
+                    content: 'Author: Brian Douglass',
+                    fontSize: 36,
+                    offsetY: -80,
+                    color: "0xFFFFFF",
+                    callback: function () {
+                        window.open('https://bhdouglass.com/');
+                    }
+                }, {
+                    type: 'text',
+                    content: 'Image Assets: Kenney',
+                    fontSize: 36,
+                    offsetY: -40,
+                    color: "0xFFFFFF",
+                    callback: function () {
+                        window.open('http://www.kenney.nl');
+                    }
+                }, {
+                    type: 'text',
+                    content: 'Music: Philippe Groarke',
+                    fontSize: 36,
+                    offsetY: 0,
+                    color: "0xFFFFFF",
+                    callback: function () {
+                        window.open('http://opengameart.org/content/seashore-peace-ambiance');
+                    }
+                }, {
+                    type: 'text',
+                    content: 'Sound FX: jcpmcdonald',
+                    fontSize: 36,
+                    offsetY: 40,
+                    color: "0xFFFFFF",
+                    callback: function () {
+                        window.open('http://opengameart.org/content/skippy-fish-water-sound-collection');
+                    }
+                }, {
+                    type: 'text',
+                    content: 'Source Code on Github',
+                    fontSize: 32,
+                    offsetY: 90,
+                    color: "0xFFFFFF",
+                    callback: function () {
+                        window.open('https://github.com/bhdouglass/fishtank');
+                    }
+                }
+            ]
+        });
+
         //Setup sounds
         this.bubbles = this.game.add.audio('bubbles');
         this.swim = this.game.add.audio('swim');
@@ -84,6 +146,7 @@ FishTankState.prototype = {
         this.groundGroup = this.add.group();
         this.fishGroup = this.add.group();
         this.musicInputGroup = this.add.group();
+        this.aboutGroup = this.add.group();
 
         //Setup ground and ornament tiles
         var tiles = (this.game.width / 64) + 1;
@@ -110,6 +173,11 @@ FishTankState.prototype = {
             this.toggleMusic();
         }
 
+        //Setup the about button
+        this.aboutGroup.inputEnableChildren = true;
+        this.aboutGroup.create(this.game.width - 64, this.game.height - 48, 'square_button');
+        this.game.add.text(this.game.width - 47, this.game.height - 40, '?', null, this.aboutGroup);
+
         //Setup the fish
         var origin = {x: 32, y: 32}; //Don't let the fish hit the glass
         var bounds = {
@@ -128,6 +196,10 @@ FishTankState.prototype = {
 
         //Setup input
         this.musicInputGroup.onChildInputUp.add(this.toggleMusic, this);
+
+        this.aboutGroup.onChildInputUp.add(function() {
+            this.modal.showModal('about');
+        }, this);
 
         this.game.input.onDown.add(function() {
             this.behavior = Fish.SEEK;

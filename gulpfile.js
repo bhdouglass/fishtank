@@ -13,6 +13,7 @@ var paths = {
         'bower_components/phaser/build/phaser.min.js',
     ],
     js: [
+        'src/js/modal.js',
         'src/js/fish.js',
         'src/js/fishtank.js',
         'src/js/index.js',
@@ -39,6 +40,7 @@ var paths = {
 
         'src/img/kenney/ui/blue_boxCheckmark.png',
         'src/img/kenney/ui/grey_box.png',
+        'src/img/kenney/ui/blue_button12.png',
 
         'src/img/*.png',
         'src/img/*.svg',
@@ -80,6 +82,7 @@ gulp.task('build-lib-js', function() {
         .pipe(gulp.dest(paths.dist + '/js'));
 });
 
+//TODO minify this
 gulp.task('build-js', function() {
     return gulp.src(paths.js)
         .pipe(concat('app.js'))

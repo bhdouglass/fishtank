@@ -56,6 +56,7 @@ PreloadState.prototype = {
 
         this.load.image('checkbox', 'img/blue_boxCheckmark.png');
         this.load.image('checkbox_blank', 'img/grey_box.png');
+        this.load.image('square_button', 'img/blue_button12.png')
 
         this.load.audio('bubbles', 'audio/jcpmcdonald/bubbles.mp3');
         this.load.audio('swim', 'audio/jcpmcdonald/swim.mp3');
