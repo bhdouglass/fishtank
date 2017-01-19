@@ -18,11 +18,16 @@ function Fish(game, group, asset, origin, bounds) {
     this.game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
     this.sprite.anchor.set(0.5);
 
-    this.boid = new Boid();
+    this.boid = new Boid({
+        wanderDistance: 20,
+        wanderRadius: 1,
+        wanderAngle: 0,
+        wanderRange: 1,
+    });
     this.boid.setBounds(bounds.width, bounds.height, origin.x, origin.y);
     this.boid.position.x = x;
     this.boid.position.y = y;
-    this.boid.maxSpeed = this.game.rnd.realInRange(0.5, 1);
+    this.boid.maxSpeed = this.game.rnd.realInRange(0.5, 0.75);
 
     this.facing = this.RIGHT;
     if (this.boid.velocity.x < 0) {
