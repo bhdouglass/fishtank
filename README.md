@@ -13,6 +13,12 @@ and used under the [Creative Commons Zero, CC0](http://creativecommons.org/publi
 
 Other images are from [Font Awesome](http://fontawesome.io/).
 
+## Audio
+
+Water sounds by [jcpmcdonald](http://opengameart.org/users/jcpmcdonald) from [OpenGameArt](http://opengameart.org/content/skippy-fish-water-sound-collection).
+
+"Seashore Peace - Ambiance" by [Philippe Groarke (Socapex)](http://opengameart.org/users/socapex) from [OpenGameArt](http://opengameart.org/content/seashore-peace-ambiance).
+
 ## License
 
 Copyright (C) 2017 [Brian Douglass](http://bhdouglass.com/)

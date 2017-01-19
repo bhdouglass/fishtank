@@ -22,12 +22,42 @@ function FishTankState(game) {
         'ornament_04',
     ];
 
+    this.soundOptions = [
+        'bubbles',
+        'swim',
+        'water',
+    ]
+
     this.behavior = Fish.WANDER;
 };
 
 FishTankState.prototype = {
+    audioStart: function() {
+        console.log('audio loaded');
+        this.seashore.loopFull(0.5);
+
+        this.timer = this.game.time.create(false);
+        this.timer.loop(2000, this.soundfx, this);
+        this.timer.start();
+    },
+
+    soundfx: function() {
+        if (this.game.rnd.integerInRange(0, 5) == 0) {
+            var sound = this.game.rnd.pick(this.soundOptions);
+            this[sound].play(null, null, 0.5);
+        }
+    },
+
     create: function() {
         this.game.stage.backgroundColor = '#A1D6E7';
+
+        this.bubbles = this.game.add.audio('bubbles');
+        this.swim = this.game.add.audio('swim');
+        this.water = this.game.add.audio('water');
+        this.seashore = this.game.add.audio('seashore-peace');
+        var sounds = [this.bubbles, this.swim, this.water, this.seashore];
+
+        this.game.sound.setDecodedCallback(sounds, this.audioStart, this);
 
         this.ornamentGroup = this.add.group();
         this.groundGroup = this.add.group();

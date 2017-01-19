@@ -53,6 +53,11 @@ PreloadState.prototype = {
         this.load.image('ornament_02', 'img/fishTile_033.png');
         this.load.image('ornament_03', 'img/fishTile_084.png');
         this.load.image('ornament_04', 'img/fishTile_085.png');
+
+        this.load.audio('bubbles', 'audio/jcpmcdonald/bubbles.mp3');
+        this.load.audio('swim', 'audio/jcpmcdonald/swim.mp3');
+        this.load.audio('water', 'audio/jcpmcdonald/water.mp3');
+        this.load.audio('seashore-peace', 'audio/socapex/seashore-peace.mp3');
     },
     create: function() {
         this.game.state.start('FishTankState');

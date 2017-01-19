@@ -40,6 +40,9 @@ var paths = {
         'src/img/*.png',
         'src/img/*.svg',
     ],
+    audio: [
+        'src/audio/**/*.mp3'
+    ],
     html: [
         'src/index.html',
     ],
@@ -63,6 +66,11 @@ gulp.task('build-img', function() {
         .pipe(gulp.dest(paths.dist + '/img'));
 });
 
+gulp.task('build-audio', function() {
+    return gulp.src(paths.audio)
+        .pipe(gulp.dest(paths.dist + '/audio'));
+});
+
 gulp.task('build-lib-js', function() {
     return gulp.src(paths.libjs)
         .pipe(concat('lib.js'))
@@ -81,7 +89,7 @@ gulp.task('watch', function() {
     gulp.watch(paths.html, ['build-html']);
 });
 
-gulp.task('build', ['clean', 'build-html', 'build-img', 'build-lib-js', 'build-js']);
+gulp.task('build', ['clean', 'build-html', 'build-img', 'build-audio', 'build-lib-js', 'build-js']);
 gulp.task('default', ['build']);
 
 gulp.task('serve', ['build', 'watch'], function() {
