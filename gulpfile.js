@@ -46,7 +46,8 @@ var paths = {
         'src/img/*.svg',
     ],
     audio: [
-        'src/audio/**/*.mp3'
+        'src/audio/**/*.mp3',
+        'src/audio/**/*.ogg',
     ],
     html: [
         'src/index.html',

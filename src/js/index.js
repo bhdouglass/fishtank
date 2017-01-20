@@ -58,20 +58,24 @@ PreloadState.prototype = {
         this.load.image('checkbox_blank', 'img/grey_box.png');
         this.load.image('square_button', 'img/blue_button12.png')
 
-        this.load.audio('bubbles', 'audio/jcpmcdonald/bubbles.mp3');
-        this.load.audio('swim', 'audio/jcpmcdonald/swim.mp3');
-        this.load.audio('water', 'audio/jcpmcdonald/water.mp3');
-        this.load.audio('seashore-peace', 'audio/socapex/seashore-peace.mp3');
+        this.load.audio('bubbles', ['audio/jcpmcdonald/bubbles.ogg', 'audio/jcpmcdonald/bubbles.mp3']);
+        this.load.audio('swim', ['audio/jcpmcdonald/swim.ogg', 'audio/jcpmcdonald/swim.mp3']);
+        this.load.audio('water', ['audio/jcpmcdonald/water.ogg', 'audio/jcpmcdonald/water.mp3']);
+        this.load.audio('seashore-peace', ['audio/socapex/seashore-peace.ogg', 'audio/socapex/seashore-peace.mp3']);
     },
     create: function() {
         this.game.state.start('FishTankState');
     }
 };
 
-
 function init() {
     //TODO listen to window resizing
-    var game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.CANVAS, 'game');
+    var game = new Phaser.Game(
+        window.innerWidth,
+        window.innerHeight,
+        Phaser.CANVAS,
+        'game'
+    );
 
     game.state.add('BootState', BootState);
     game.state.add('PreloadState', PreloadState);

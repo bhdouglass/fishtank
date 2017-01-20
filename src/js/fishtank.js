@@ -78,7 +78,7 @@ FishTankState.prototype = {
             modalCloseOnInput: true,
             itemsArr: [
                 {
-                    type: 'text',
+                    type: 'text', //TODO use a bitmap font
                     content: 'Fish Tank',
                     fontSize: 42,
                     offsetY: -130,
@@ -181,8 +181,8 @@ FishTankState.prototype = {
         //Setup the fish
         var origin = {x: 32, y: 32}; //Don't let the fish hit the glass
         var bounds = {
-            width: this.game.width - origin.x - 32,
-            height: this.game.height - origin.y - 32 - 64, //Inlcude room for the ground
+            width: this.game.width - origin.x,
+            height: this.game.height - origin.y - 64, //Include room for the ground
         };
 
         //Ensure that there is at least one of each fish
