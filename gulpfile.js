@@ -5,9 +5,14 @@ var gopen = require('gulp-open');
 var preprocess = require('gulp-preprocess');
 var surge = require('gulp-surge');
 var minify = require('gulp-minify');
-var eslint = require('gulp-eslint');
 var del = require('del');
 var fs = require('fs');
+
+var eslint = null;
+if (!process.env.SKIP_LINT) {
+    //Doing this because the version of node in the lxd container is really old and causes issues
+    eslint = require('gulp-eslint');
+}
 
 var paths = {
     dist: 'www',
@@ -44,10 +49,12 @@ gulp.task('clean', function() {
 });
 
 gulp.task('lint', function() {
-    return gulp.src(paths.lint)
-        .pipe(eslint())
-        .pipe(eslint.format())
-        .pipe(eslint.failAfterError());
+    if (!process.env.SKIP_LINT) {
+        return gulp.src(paths.lint)
+            .pipe(eslint())
+            .pipe(eslint.format())
+            .pipe(eslint.failAfterError());
+    }
 });
 
 var assetMap = {
