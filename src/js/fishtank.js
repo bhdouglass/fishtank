@@ -53,13 +53,13 @@ FishTankState.prototype = {
         console.log('music changed, new value:', !this.playMusic);
 
         if (this.playMusic) {
-            this.musicCheckbox.loadTexture('checkbox_blank');
+            this.musicCheckbox.loadTexture('assets', 'checkbox_blank');
 
             this.playMusic = false;
             this.seashore.stop();
         }
         else {
-            this.musicCheckbox.loadTexture('checkbox');
+            this.musicCheckbox.loadTexture('assets', 'checkbox');
 
             this.playMusic = true;
             this.seashore.loopFull(0.5);
@@ -152,12 +152,12 @@ FishTankState.prototype = {
         var tiles = (this.game.width / 64) + 1;
         for (var i = 0; i < tiles; i++) {
             var asset = this.game.rnd.pick(this.tileOptions);
-            this.groundGroup.create(64 * i, this.game.height - 64, asset);
+            this.groundGroup.create(64 * i, this.game.height - 64, 'assets', asset);
 
             if (this.game.rnd.integerInRange(1, 3) == 1) {
                 var ornamentAsset = this.game.rnd.pick(this.ornamentOptions);
                 var offset = 12; //The ground tiles have some transparency on top
-                this.ornamentGroup.create(64 * i, this.game.height - 64 - 64 + offset, ornamentAsset);
+                this.ornamentGroup.create(64 * i, this.game.height - 64 - 64 + offset, 'assets', ornamentAsset);
             }
         }
 
@@ -165,7 +165,7 @@ FishTankState.prototype = {
         this.musicInputGroup.inputEnableChildren = true;
 
         var checkbox_asset = 'checkbox'; //TODO save the checked state to local storage
-        this.musicCheckbox = this.musicInputGroup.create(12, this.game.height - 44, checkbox_asset);
+        this.musicCheckbox = this.musicInputGroup.create(12, this.game.height - 44, 'assets', checkbox_asset);
         this.game.add.text(60, this.game.height - 40, 'Music', null, this.musicInputGroup);
 
         var playMusic = localStorage.getItem('play-music');
@@ -175,7 +175,7 @@ FishTankState.prototype = {
 
         //Setup the about button
         this.aboutGroup.inputEnableChildren = true;
-        this.aboutGroup.create(this.game.width - 64, this.game.height - 48, 'square_button');
+        this.aboutGroup.create(this.game.width - 64, this.game.height - 48, 'assets', 'square_button');
         this.game.add.text(this.game.width - 47, this.game.height - 40, '?', null, this.aboutGroup);
 
         //Setup the fish

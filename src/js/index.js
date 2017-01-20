@@ -34,29 +34,7 @@ PreloadState.prototype = {
 
         this.load.setPreloadSprite(this.loading);*/
 
-        //TODO sprite map
-        this.load.image('green_fish', 'img/fishTile_073.png');
-        this.load.image('pink_fish', 'img/fishTile_075.png');
-        this.load.image('blue_fish', 'img/fishTile_077.png');
-        this.load.image('red_fish', 'img/fishTile_079.png');
-        this.load.image('orange_fish', 'img/fishTile_081.png');
-        this.load.image('puffer_fish', 'img/fishTile_101.png');
-
-        this.load.image('ground_01', 'img/fishTile_056.png');
-        this.load.image('ground_02', 'img/fishTile_057.png');
-        this.load.image('ground_03', 'img/fishTile_060.png');
-        this.load.image('ground_04', 'img/fishTile_061.png');
-        this.load.image('ground_05', 'img/fishTile_062.png');
-        this.load.image('ground_06', 'img/fishTile_063.png');
-
-        this.load.image('ornament_01', 'img/fishTile_032.png');
-        this.load.image('ornament_02', 'img/fishTile_033.png');
-        this.load.image('ornament_03', 'img/fishTile_084.png');
-        this.load.image('ornament_04', 'img/fishTile_085.png');
-
-        this.load.image('checkbox', 'img/blue_boxCheckmark.png');
-        this.load.image('checkbox_blank', 'img/grey_box.png');
-        this.load.image('square_button', 'img/blue_button12.png')
+        this.load.atlasJSONHash('assets', 'img/assets.png', 'img/assets.json');
 
         this.load.audio('bubbles', ['audio/jcpmcdonald/bubbles.ogg', 'audio/jcpmcdonald/bubbles.mp3']);
         this.load.audio('swim', ['audio/jcpmcdonald/swim.ogg', 'audio/jcpmcdonald/swim.mp3']);
