@@ -9,7 +9,7 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
-    <icon src="logo.png" />
+    <icon src="src/img/logo.png" />
     <platform name="android">
         <preference name="orientation" value="portrait" />
     </platform>
