@@ -45,7 +45,6 @@ Fish.SEEK = 'seek';
 Fish.FLEE = 'flee';
 Fish.WIGGLE_FACTOR = 20;
 
-//TODO make the fish not "wiggle" so much (check the orientation and only switch after a while)
 Fish.prototype.update = function(behavior, target) {
     if (behavior == Fish.WANDER) {
         this.boid.wander();

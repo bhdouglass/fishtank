@@ -28,7 +28,7 @@ function FishTankState(game) {
     ]
 
     this.behavior = Fish.WANDER;
-};
+}
 
 FishTankState.prototype = {
     audioStart: function() {
@@ -164,8 +164,7 @@ FishTankState.prototype = {
         //Setup the music checkbox
         this.musicInputGroup.inputEnableChildren = true;
 
-        var checkbox_asset = 'checkbox'; //TODO save the checked state to local storage
-        this.musicCheckbox = this.musicInputGroup.create(12, this.game.height - 44, 'assets', checkbox_asset);
+        this.musicCheckbox = this.musicInputGroup.create(12, this.game.height - 44, 'assets', 'checkbox');
         this.game.add.text(60, this.game.height - 40, 'Music', null, this.musicInputGroup);
 
         var playMusic = localStorage.getItem('play-music');
@@ -190,7 +189,7 @@ FishTankState.prototype = {
             this.fishes.push(new Fish(this.game, this.fishGroup, asset, origin, bounds));
         }, this);
 
-        for (var i = 0; i < this.game.rnd.integerInRange(15, 25); i++) {
+        for (var j = 0; j < this.game.rnd.integerInRange(15, 25); j++) {
             this.fishes.push(new Fish(this.game, this.fishGroup, null, origin, bounds));
         }
 

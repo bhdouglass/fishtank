@@ -1,0 +1,17 @@
+{
+  "extends": "eslint:recommended",
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "no-console": "off"
+  },
+  "globals": {
+    "Phaser": false,
+    "Boid": false,
+    "Fish": false,
+    "gameModal": false,
+    "FishTankState": false,
+  }
+}

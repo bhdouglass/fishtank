@@ -4,11 +4,18 @@ var connect = require('gulp-connect');
 var gopen = require('gulp-open');
 var preprocess = require('gulp-preprocess');
 var surge = require('gulp-surge');
+var minify = require('gulp-minify');
+var eslint = require('gulp-eslint');
 var del = require('del');
 var fs = require('fs');
 
 var paths = {
     dist: 'www',
+    lint: [
+        'gulpfile.js',
+        'src/js/*.js',
+        '!src/js/modal.js',
+    ],
     libjs: [
         'bower_components/boid/dist/boid.js',
         'bower_components/phaser/build/phaser.min.js',
@@ -34,6 +41,13 @@ var paths = {
 
 gulp.task('clean', function() {
     del.sync(paths.dist);
+});
+
+gulp.task('lint', function() {
+    return gulp.src(paths.lint)
+        .pipe(eslint())
+        .pipe(eslint.format())
+        .pipe(eslint.failAfterError());
 });
 
 var assetMap = {
@@ -111,20 +125,20 @@ gulp.task('build-lib-js', function() {
         .pipe(gulp.dest(paths.dist + '/js'));
 });
 
-//TODO minify this
 gulp.task('build-js', function() {
     return gulp.src(paths.js)
         .pipe(concat('app.js'))
+        .pipe(minify())
         .pipe(gulp.dest(paths.dist + '/js'));
 });
 
 
 gulp.task('watch', function() {
-    gulp.watch(paths.js, ['build-js']);
+    gulp.watch(paths.js, ['lint', 'build-js']);
     gulp.watch(paths.html, ['build-html']);
 });
 
-gulp.task('build', ['clean', 'build-html', 'build-img', 'build-audio', 'build-lib-js', 'build-js', 'build-assets']);
+gulp.task('build', ['clean', 'lint', 'build-html', 'build-img', 'build-audio', 'build-lib-js', 'build-js', 'build-assets']);
 gulp.task('default', ['build']);
 
 gulp.task('serve', ['build', 'watch'], function() {
